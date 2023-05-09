@@ -1,0 +1,95 @@
+const civs = [
+  { id: 1, name: "Poland (Casimir III)", score: 8 },
+  { id: 2, name: "Egypt (Ramesses II)", score: 8 },
+  { id: 3, name: "Huns (Atilla)", score: 8 },
+  { id: 4, name: "England (Elizabeth)", score: 8 },
+  { id: 5, name: "Korea (Sejong)", score: 8 },
+  { id: 6, name: "Persia (Darius I)", score: 6 },
+  { id: 7, name: "Babylon (Nebuchadnezzar II)", score: 6 },
+  { id: 8, name: "Arabia (Harun al-Rashid)", score: 6 },
+  { id: 9, name: "Inca (Pachacuti)", score: 6 },
+  { id: 10, name: "China (Wu Zetian)", score: 6 },
+  { id: 11, name: "Austria (Maria Theresa)", score: 6 },
+  { id: 12, name: "Celts (Boudicca)", score: 6 },
+  { id: 13, name: "Siam (Ramkhamhaeng)", score: 6 },
+  { id: 14, name: "Zulu (Shaka)", score: 6 },
+  { id: 15, name: "Maya (Pacal)", score: 6 },
+  { id: 16, name: "Aztec (Montezuma)", score: 5 },
+  { id: 17, name: "Greece (Alexander)", score: 5 },
+  { id: 18, name: "America (Washington)", score: 5 },
+  { id: 19, name: "Russia (Catherine)", score: 5 },
+  { id: 20, name: "Ethiopia (Haile Selassie)", score: 5 },
+  { id: 21, name: "Spain (Isabella)", score: 5 },
+  { id: 22, name: "Mongolia (Genghis Khan)", score: 4 },
+  { id: 23, name: "Songhai (Askia)", score: 4 },
+  { id: 24, name: "Morocco (Ahmad al-Mansur)", score: 4 },
+  { id: 25, name: "India (Gandhi)", score: 4 },
+  { id: 26, name: "The Shoshone (Pocatello)", score: 4 },
+  { id: 27, name: "Byzantium (Theodora)", score: 4 },
+  { id: 28, name: "Denmark (Harald Bluetooth)", score: 4 },
+  { id: 29, name: "Germany (Bismarck)", score: 4 },
+  { id: 30, name: "Indonesia (Gajah Mada)", score: 3 },
+  { id: 31, name: "Brazil (Pedro II)", score: 3 },
+  { id: 32, name: "Portugal (Maria I)", score: 3 },
+  { id: 33, name: "Netherlands (William)", score: 3 },
+  { id: 34, name: "Sweden (Gustavus Adolphus)", score: 3 },
+  { id: 35, name: "Ottomans (Suleiman)", score: 3 },
+{ id: 36, name: "Rome (Augustus Caesar)", score: 3 },
+{ id: 37, name: "Japan (Oda Nobunaga)", score: 3 },
+{ id: 38, name: "Assyria (Ashurbanipal)", score: 2 },
+{ id: 39, name: "France (Napoleon)", score: 2 },
+{ id: 40, name: "Polynesia (Kamehameha)", score: 2 },
+{ id: 41, name: "Carthage (Dido)", score: 2 },
+{ id: 42, name: "Venice (Enrico Dandolo)", score: 2 },
+{ id: 43, name: "Iroquois (Hiawatha)", score: 2 }
+];
+
+
+
+
+{'id': 1, 'name': 'Alhambra', 'score': 8}
+{'id': 2, 'name': 'Colossus', 'score': 8}
+{'id': 3, 'name': 'Great Library', 'score': 8}
+{'id': 4, 'name': 'Hanging Gardens', 'score': 8}
+{'id': 5, 'name': 'Hubble Space Telescope', 'score': 8}
+{'id': 6, 'name': 'Machu Picchu', 'score': 8}
+{'id': 7, 'name': 'Notre Dame', 'score': 8}
+{'id': 8, 'name': 'Prora', 'score': 8}
+{'id': 9, 'name': 'Statue of Liberty', 'score': 8}
+{'id': 10, 'name': 'Temple of Artemis', 'score': 8}
+{'id': 11, 'name': 'Borobudur', 'score': 5}
+{'id': 12, 'name': 'Brandenburg Gate', 'score': 5}
+{'id': 13, 'name': 'Chichen Itza', 'score': 5}
+{'id': 14, 'name': 'Eiffel Tower', 'score': 5}
+{'id': 15, 'name': 'Forbidden Palace', 'score': 5}
+{'id': 16, 'name': 'Great Lighthouse', 'score': 5}
+{'id': 17, 'name': 'Great Wall', 'score': 5}
+{'id': 18, 'name': 'Leaning Tower of Pisa', 'score': 5}
+{'id': 19, 'name': 'Mausoleum of Halicanasus', 'score': 5}
+{'id': 20, 'name': 'Petra', 'score': 5}
+{'id': 21, 'name': 'Stonehenge', 'score': 5}
+{'id': 22, 'name': 'Taj Mahal', 'score': 5}
+{'id': 23, 'name': 'Hagia Sophia', 'score': 4}
+{'id': 24, 'name': 'Kremlin', 'score': 4}
+{'id': 25, 'name': 'Neuschwanstein', 'score': 4}
+{'id': 26, 'name': 'Oracle', 'score': 4}
+{'id': 27, 'name': 'Porcelain Tower', 'score': 4}
+{'id': 28, 'name': 'Pyramids', 'score': 4}
+{'id': 29, 'name': 'Red Fort', 'score': 4}
+{'id': 30, 'name': 'Sistine Chapel', 'score': 4}
+{'id': 31, 'name': 'Big Ben', 'score': 3}
+{'id': 32, 'name': 'Himeji Castle', 'score': 3}
+{'id': 33, 'name': 'Parthenon', 'score': 3}
+{'id': 34, 'name': 'Terracotta Army', 'score': 3}
+{'id': 35, 'name': 'Angkor Wat', 'score': 2}
+{'id': 36, 'name': 'Broadway', 'score': 2}
+{'id': 37, 'name': 'Globe Theatre', 'score': 2}
+{'id': 38, 'name': 'Great Mosque of Djenne', 'score': 2}
+{'id': 39, 'name': 'Louvre', 'score': 2}
+{'id': 40, 'name': 'Statue of Zeus', 'score': 2}
+{'id': 41, 'name': 'Sydney Opera House', 'score': 2}
+{'id': 42, 'name': 'Uffizi', 'score': 2}
+{'id': 43, 'name': 'CN Tower', 'score': 1}
+{'id': 44, 'name': 'Cristo Redentor', 'score': 1}
+{'id': 45, 'name': 'Great Firewall', 'score': 1}
+{'id': 46, 'name': 'Pentagon', 'score': 1}
