@@ -3,12 +3,6 @@
   import { civs,wonders } from "./assets/civ"
 
 
-  //create task list
-  let tasks = [
-    { id: 1, name: "Task 1" },
-    { id: 2, name: "Task 2" },
-    { id: 3, name: "Task 3" },
-  ];
 
   let players = [];
 
@@ -67,6 +61,22 @@
       //randomize wonders
       if(includeWonders){
         players[i].wonders = [];
+        
+        //lower civ bias
+        //if player has a civ of score 5 or less, give them at least a wonder of score 6 or more if possible
+        if(players[i].civ.score <= 5){
+          randomIndex = Math.floor(Math.random() * _wonders.length);
+          while(_wonders[randomIndex].score < 6 && checkWondersByScore(6, _wonders)){
+            randomIndex = Math.floor(Math.random() * _wonders.length);
+          }
+          players[i].wonders.push(_wonders[randomIndex]);
+          _wonders.splice(randomIndex, 1);
+          playerScore -= players[i].wonders[players[i].wonders.length-1].score;
+        }
+
+
+
+
         while(playerScore > 0){
           randomIndex = Math.floor(Math.random() * _wonders.length);
           //check if player can afford wonder
@@ -80,16 +90,19 @@
       }
     }
 
+    //check if any wonder exists of given score or more
+    function checkWondersByScore(score, wonderList){
+      for(let i = 0; i < wonderList.length; i++){
+        if(wonderList[i].score >= score){
+          return true;
+        }
+      }
+      return false;
+    }
+
 
   }
 
-
-
-  //delete task button function
-  function deleteTask(id) {
-    //filter out task with matching id
-    tasks = tasks.filter((task) => task.id !== id);
-  }
 
 
 
