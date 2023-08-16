@@ -69,6 +69,8 @@
           while(_wonders[randomIndex].score < 6 && checkWondersByScore(6, _wonders)){
             randomIndex = Math.floor(Math.random() * _wonders.length);
           }
+
+          console.log("bias wonder: " + _wonders[randomIndex].name);
           players[i].wonders.push(_wonders[randomIndex]);
           _wonders.splice(randomIndex, 1);
           playerScore -= players[i].wonders[players[i].wonders.length-1].score;

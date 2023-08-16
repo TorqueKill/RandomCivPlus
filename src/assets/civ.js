@@ -24,7 +24,7 @@ const civs = [
   { id: 23, name: "Songhai (Askia)", score: 4 },
   { id: 24, name: "Morocco (Ahmad al-Mansur)", score: 4 },
   { id: 25, name: "India (Gandhi)", score: 4 },
-  { id: 26, name: "The Shoshone (Pocatello)", score: 4 },
+  { id: 26, name: "The Shoshone (Pocatello)", score: 6 },
   { id: 27, name: "Byzantium (Theodora)", score: 4 },
   { id: 28, name: "Denmark (Harald Bluetooth)", score: 4 },
   { id: 29, name: "Germany (Bismarck)", score: 4 },
