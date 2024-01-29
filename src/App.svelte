@@ -112,127 +112,114 @@
 
 <main>
   <div class="container">
-    <div class="header">Random Civ</div>
-    <div class="input-container">
+    <header class="header">Random Civilization Generator</header>
+    <section class="input-container">
+      <label for="numPlayers">Number of Players:</label>
+      <input type="number" id="numPlayers" value={numPlayers} min={minPlayers} max={maxPlayers} />
 
-      <p>Number of Players</p>
-      <input type="number" placeholder=2 bind:value={numPlayers}>
-      <p>Include Wonders</p>
-      <input type="checkbox" bind:checked={includeWonders}>
-      <button on:click={()=>{generate()}}>Generate</button>
-    </div>
-    <div class="task-list">
+      <label for="includeWonders">Include Wonders:</label>
+      <input type="checkbox" id="includeWonders" bind:checked={includeWonders}>
+      <button class="generate-button" on:click={()=>{generate()}}>Generate</button>
+    </section>
+    <section class="task-list">
       {#each players as player}
-        <!--each player has one civ but could have multiple wonders-->
-        <div class="task-container">
-        <div class="task-1">
-          <p>Player: {player.id}</p>
-        </div>
-        <div class="task-2">
-        <p>Civ: {player.civ.name}</p>
-        <p>Score: {player.civ.score}</p>
-        </div>
-        <div class="task-3">
-        {#if includeWonders && player.wonders}
-          {#each player.wonders as wonder}
-            <div>{wonder.name} ({wonder.score})</div>
-          {/each}
-        {/if}
-        </div>
+        <div class="player-container">
+          <div class="player-info">
+            <h2>Player {player.id}</h2>
+            <p>Civilization: <span>{player.civ.name}</span></p>
+            <p>Score: <span>{player.civ.score}</span></p>
+          </div>
+          {#if includeWonders && player.wonders}
+            <div class="wonders-list">
+              {#each player.wonders as wonder}
+                <div class="wonder-item">{wonder.name} (Score: {wonder.score})</div>
+              {/each}
+            </div>
+          {/if}
         </div>
       {/each}
-      
-    </div>
+    </section>
   </div>
 </main>
 
+
 <style>
-  .container {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: auto 100px 1fr;
-    grid-template-areas:
-      "header"
-      "input-container"
-      "task-list";
-    height: 100vh;
-    width: 1200px;
-  }
-  
-  .header {
-    grid-area: header;
-    font-size: 24px;
-    text-align: center;
-    padding: 20px;
-    background-color: #313131;
-  }
-  
-  .input-container {
-    grid-area: input-container;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 10px;
-    background-color: #eee;
-  }
-  
-  input {
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    margin-right: 10px;
-  }
-  
-  button {
-    padding: 10px;
-    background-color: #333;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .task-list {
-    grid-area: task-list;
-    display: flex;
-    flex-direction: column;
-    padding: 10px;
-    background-color: #fff;
-    overflow-y: auto;
-  }
-  
-  .task-container {
-  display: grid;
-  grid-template-rows: 1fr;
-  grid-template-columns: 100px 200px 2fr;
-  grid-template-areas: "task-1 task-2 task-3";
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
 }
 
-  .task-1 {
-    padding: 10px;
-    border-bottom: 1px solid #ccc;
-    background-color: #b5b5b5;
-    font-size: 20px;
-  }
+.header {
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: #2c3e50;
+}
 
-  .task-2 {
-    padding: 10px;
-    border-bottom: 1px solid #ccc;
-    background-color: #b5b5b5;
-    font-size: 20px;
-  }
+.input-container {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  align-items: center;
+  justify-content: center;
+}
 
-  .task-3 {
-    padding: 10px;
-    border-bottom: 1px solid #ccc;
-    background-color: #b5b5b5;
-    color: #000000;
-    font-size: 15px;
-  }
+input[type="number"],
+input[type="checkbox"] {
+  padding: 10px;
+  border: 1px solid #bdc3c7;
+  border-radius: 5px;
+}
 
-  p{
-    color: #000000;
-    padding: 10px;
-    font-size: 20px;
-    }
+.generate-button {
+  padding: 10px 15px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.generate-button:hover {
+  background-color: #2980b9;
+}
+
+.task-list {
+  width: 100%;
+  overflow-y: auto;
+}
+
+.player-container {
+  border: 1px solid #bdc3c7;
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 10px;
+}
+
+.player-info h2 {
+  margin-top: 0;
+  color: #34495e;
+}
+
+.player-info p {
+  margin: 5px 0;
+  color: #7f8c8d;
+}
+
+.wonders-list {
+  margin-top: 10px;
+}
+
+.wonder-item {
+  background-color: #34495e;
+  padding: 8px;
+  border-radius: 5px;
+  margin-top: 5px;
+}
+
 </style>
