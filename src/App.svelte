@@ -115,7 +115,7 @@
     <header class="header">Random Civilization Generator</header>
     <section class="input-container">
       <label for="numPlayers">Number of Players:</label>
-      <input type="number" id="numPlayers" value={numPlayers} min={minPlayers} max={maxPlayers} />
+      <input type="number" id="numPlayers" bind:value={numPlayers} min={minPlayers} max={maxPlayers} />
 
       <label for="includeWonders">Include Wonders:</label>
       <input type="checkbox" id="includeWonders" bind:checked={includeWonders}>
